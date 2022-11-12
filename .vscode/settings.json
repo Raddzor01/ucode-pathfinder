@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "random": "c",
+        "pathfinder.h": "c"
+    }
+}
