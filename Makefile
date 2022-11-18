@@ -1,6 +1,5 @@
 CC = clang
 CFLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic -g
-
 NAME = pathfinder
 
 OBJ_DIR = obj
@@ -40,7 +39,7 @@ clean:
 	@$(RM) $(OBJ_DIR)
 
 uninstall: clean
-	@$(MAKE_LIB) -sC $(LMX_DIR) $@
+	@$(MAKE_LIB) $(LIB_DIR) $@
 	@$(RM) $(NAME)
 
 reinstall: uninstall all

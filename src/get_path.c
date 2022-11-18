@@ -2,8 +2,8 @@
 
 char **get_path(char *line) {
 
-    char **strarr = (char **)malloc(3);
-    for (int i = 0; i < 3; i++) {
+    char **strarr = (char **)malloc(4 * sizeof(char *));
+    for (int i = 0; i <= 3; i++) {
         strarr[i] = NULL;
     }
     

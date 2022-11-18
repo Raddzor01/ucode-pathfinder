@@ -2,16 +2,16 @@
 
 #include "../libmx/inc/libmx.h"
 
-#define INFINITY __INT_MAX__
+#define INFINITY 2000000
 
-void check_errors(char *file, char **argv);
+void check_errors(char *file, char *argv[]);
 void check_nbr_of_islands(char **temp, int lines, int nbr_of_islands);
 void invalid_n_line(int number_of_line);
 void check_lines(char **file_lines, int lines_count);
 void check_dup(char **file_lines, int lines_count);
 void check_loop(char **strarr, int count_lines);
 char** get_islands(char *str, int isl_nbr);
-int **get_bridge_matrix(char *str, char **vertex_arr, int size);
+int **get_bridge_matrix(char **file_lines, char **vertex_arr, int size);
 int **AlgoritmFloydWarshall(int **matrix, int numberOfVert);
 void algorithm(int ***w, int size);
 void print_route(int count, int *route, char **islands);

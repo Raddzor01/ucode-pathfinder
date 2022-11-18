@@ -2,18 +2,16 @@
 
 int **AlgoritmFloydWarshall(int **matrix, int numberOfVert) {
 
-    int **temp = (int **)malloc(numberOfVert * numberOfVert * 4);
+    int **temp = (int **)malloc(numberOfVert * numberOfVert * sizeof(int *));
     for (int i = 0; i < numberOfVert; i++) {
-        temp[i] = (int *)malloc(numberOfVert * 4);
-    }
-    
-    for (int i = 0; i < numberOfVert; i++) {
-        for (int j = 0; j < numberOfVert; j++) {
+
+        temp[i] = (int *)malloc(numberOfVert * sizeof(int));
+
+        for (int j = 0; j < numberOfVert; j++)
             temp[i][j] = matrix[i][j];
-        }
-        
+
     }
-    
+
     for(int k = 0 ; k < numberOfVert; k++) {
         for(int i = 0 ; i < numberOfVert; i++) {
             for(int j = 0 ; j < numberOfVert; j++) {

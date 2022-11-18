@@ -3,7 +3,7 @@
 void check_nbr_of_islands(char **islands, int lines, int nbr_of_islands) {
     int count = 0;
     for (int i = 0; i < lines; i++) {
-        if (islands[i][0] != '\0') {
+        if (islands[i][0] != ' ') {
             count++;
         }
     }

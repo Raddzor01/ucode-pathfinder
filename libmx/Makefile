@@ -1,12 +1,15 @@
 CC = clang
 CFLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic -g
 NAME = libmx.a
+
 OBJ_FOLDER = obj
 INC_FOLDER = inc
 SRC_FOLDER = src
+
 SRC_FILES = $(wildcard $(SRC_FOLDER)/*.c)
 OBJ_FILES = $(addprefix $(OBJ_FOLDER)/, $(notdir $(SRC_FILES:%.c=%.o)))
 INC_FILES = $(wildcard $(INC_FOLDER)/*.h)
+
 RM = rm -rf
 AR = ar rcs
 MKDIR = mkdir -p

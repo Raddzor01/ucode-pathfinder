@@ -1,6 +1,7 @@
 #include "../inc/pathfinder.h"
 
 int main(int argc, char *argv[]) {
+
     if (argc != 2) {
         mx_printerr("usage: ./pathfinder [filename]\n");
         exit(0);
@@ -11,14 +12,19 @@ int main(int argc, char *argv[]) {
         mx_printerr(" does not exist\n");
         exit(0);
     }
+
     char *str_file = mx_file_to_str(argv[1]);
+
     check_errors(str_file, argv);
+
     char **file_lines = mx_strsplit(str_file, '\n');
     int nbr_of_islands = mx_atoi(file_lines[0]);
+
     char **islands = get_islands(str_file, nbr_of_islands);
-    int **adj_matrix = get_bridge_matrix(str_file, islands, nbr_of_islands);
+    int **adj_matrix = get_bridge_matrix(file_lines, islands, nbr_of_islands);
+
     int **matrix_of_paths = AlgoritmFloydWarshall(adj_matrix, nbr_of_islands);
-    int *way_to_island = (int *)malloc((nbr_of_islands + 1) * 4);
+    int *way_to_island = (int *)malloc((nbr_of_islands + 1) * sizeof(int));
     int nbr_of_steps = 1;
     
     for (int i = 0; i < nbr_of_islands; i++) {
@@ -28,6 +34,7 @@ int main(int argc, char *argv[]) {
             way_to_island[0] = j;
 
             print(islands, adj_matrix, matrix_of_paths, nbr_of_islands, way_to_island, nbr_of_steps);
+
         }
     }
 

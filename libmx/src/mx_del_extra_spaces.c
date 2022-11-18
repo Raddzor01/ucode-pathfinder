@@ -1,8 +1,6 @@
 #include "libmx.h"
 
 char *mx_del_extra_spaces(const char *str) {
-    char *mem = NULL;
-    char *temp = NULL;
     int i = 0;
     int j = 0;
 
@@ -10,7 +8,7 @@ char *mx_del_extra_spaces(const char *str) {
         return NULL;
     }
 
-    mem = mx_strnew(mx_strlen(str));
+    char *mem = mx_strnew(mx_strlen(str));
 
     while (str[i]) {
         if (!(mx_isspace(str[i]))) {
@@ -24,7 +22,7 @@ char *mx_del_extra_spaces(const char *str) {
         i++;
     }
 
-    temp = mx_strtrim(mem);
+    char *temp = mx_strtrim(mem);
     mx_strdel(&mem);
     
     return temp;

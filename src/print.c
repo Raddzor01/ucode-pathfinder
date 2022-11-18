@@ -17,7 +17,6 @@ void print(char **islands, int **adj_matrix, int **matrix_of_paths, int nbr_of_i
             nbr_of_steps--;
         }
     }
-    
 
     if (way_to_island[nbr_of_steps] != start_island) {
         return;

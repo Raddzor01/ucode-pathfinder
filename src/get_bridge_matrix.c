@@ -1,10 +1,10 @@
 #include "../inc/pathfinder.h"
 
-int **get_bridge_matrix(char *str, char **vertex_arr, int size) {
+int **get_bridge_matrix(char **file_lines, char **vertex_arr, int size) {
 
-    int **adj_matrix = (int **) malloc(size * size * 4);
+    int **adj_matrix = (int **) malloc(size * sizeof(int *));
     for (int i = 0; i < size; i++) {
-        adj_matrix[i] = (int *)malloc(size * 4);
+        adj_matrix[i] = (int *)malloc(size * sizeof(int));
     }
 
     for(int i = 0; i < size; i++) {
@@ -12,8 +12,6 @@ int **get_bridge_matrix(char *str, char **vertex_arr, int size) {
             adj_matrix[i][j] = INFINITY;
         }
     }
-    
-    char **file_lines = mx_strsplit(str, '\n');
     
     for (int i = 1; file_lines[i]; i++) {
 
@@ -27,15 +25,10 @@ int **get_bridge_matrix(char *str, char **vertex_arr, int size) {
         adj_matrix[mx_get_strarr_index(vertex_arr, temp[0])][mx_get_strarr_index(vertex_arr, temp[1])] = mx_atoi(temp[2]);
         adj_matrix[mx_get_strarr_index(vertex_arr, temp[1])][mx_get_strarr_index(vertex_arr, temp[0])] = mx_atoi(temp[2]);
     
-        mx_strdel(&temp[0]);
-        mx_strdel(&temp[1]);
-        mx_strdel(&temp[2]);
-        free(temp);
-        temp = NULL;
+        mx_del_strarr(&temp);
 
     }
 
-    
     return adj_matrix;
 
 }
